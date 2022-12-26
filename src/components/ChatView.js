@@ -64,7 +64,7 @@ const ChatView = () => {
       data.bot && updateMessage(data.bot, true);
     } else {
       // The request failed
-      window.alert(`openAI is returning an error: ${response.status, response.statusText} 
+      window.alert(`openAI is returning an error: ${response.status + response.statusText} 
       please try again later`);
       console.log(`Request failed with status code ${response.status}`);
     }
