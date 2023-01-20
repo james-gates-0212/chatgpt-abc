@@ -1,8 +1,8 @@
-import React, { useState, useContext } from 'react';
-import { MdClose, MdMenu, MdAdd, MdOutlineLogout, MdOutlineQuestionAnswer } from 'react-icons/md';
-import { ChatContext } from '../context/chatContext';
+import React, { useState, useContext } from 'react'
+import { MdClose, MdMenu, MdAdd, MdOutlineLogout, MdOutlineQuestionAnswer } from 'react-icons/md'
+import { ChatContext } from '../context/chatContext'
 import bot from '../assets/bot.ico'
-import DarkMode from './DarkMode';
+import DarkMode from './DarkMode'
 import { auth } from '../firebase'
 
 /**
@@ -12,8 +12,8 @@ import { auth } from '../firebase'
  * @param {Object} props - The properties for the component.
  */
 const SideBar = () => {
-  const [open, setOpen] = useState(true);
-  const [, , clearMessages, limit, setLimit] = useContext(ChatContext);
+  const [open, setOpen] = useState(true)
+  const [, , clearMessages, limit, setLimit] = useContext(ChatContext)
   /**
    * Toggles the dark mode.
    */
@@ -50,7 +50,7 @@ const SideBar = () => {
         </span>
       </div>
       {limit >= 0 &&
-        <div className="nav__msg">
+        <div className={`nav__msg ${!open && "scale-0 hidden"}`}>
           <p className='nav__p'>
             you have {limit} requests left today.
 
@@ -80,4 +80,4 @@ const SideBar = () => {
   )
 }
 
-export default SideBar;
+export default SideBar

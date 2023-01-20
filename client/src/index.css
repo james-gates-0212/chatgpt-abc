@@ -70,12 +70,12 @@
 
   /* CHATVIEW */
   .chatview{
-    @apply h-screen flex-1 p-7 duration-500 overflow-hidden relative bg-slate-200
+    @apply h-screen flex-1 p-2 duration-500 overflow-hidden relative bg-slate-200
   dark:bg-light-grey;
   }
 
   .chatview__chatarea {
-    @apply h-[80vh] w-full overflow-y-scroll flex flex-col m-2 shadow-md;
+    @apply h-[85vh] w-full overflow-y-scroll flex flex-col m-2 shadow-md;
   }
   
   .form{
@@ -97,6 +97,7 @@
   .chatview__textarea-message{
     @apply text-xl bg-transparent h-16 sm:w-screen max-h-[20rem] min-h-[4rem] p-2 dark:bg-light-grey
     border border-light-grey dark:border-dark-grey overflow-y-hidden mx-2
+    focus:ring-offset-indigo-200 focus:ring-2 focus:ring-offset-2
     resize-y rounded-xl;
   }
 
@@ -140,11 +141,15 @@
   /* Signin Page */
 
   .signin{
-    @apply flex flex-col justify-center items-center h-screen w-screen overflow-hidden bg-slate-600;
+    @apply flex flex-col justify-center items-center h-screen w-screen overflow-hidden bg-dark-grey;
+  }
+
+  .signin__container{
+    @apply border-4 rounded-2xl h-72 w-72 p-5 flex flex-col justify-center items-center;
   }
 
   .signin__btn{
-    @apply h-16 px-4 rounded-xl bg-slate-100 hover:bg-slate-300 border
+    @apply h-12 px-4 rounded-xl bg-slate-100 hover:bg-slate-300 border
      border-light-grey focus:ring-offset-indigo-200 text-black transition 
     ease-in-out duration-500 text-center text-base font-semibold shadow-md 
     focus:outline-none focus:ring-2 focus:ring-offset-2;

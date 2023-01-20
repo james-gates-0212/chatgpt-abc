@@ -26,7 +26,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "server": "nodemon server/server.js",
+    "server": "nodemon ../server/server.js",
     "dev": "concurrently \"npm start\" \"npm run server\"",
     "build": "react-scripts build",
     "test": "react-scripts test",

@@ -1,5 +1,5 @@
 import React from 'react'
-import { MdComputer, MdPersonOutline } from 'react-icons/md'
+import { MdComputer } from 'react-icons/md'
 import ReactMarkdown from 'react-markdown'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism'

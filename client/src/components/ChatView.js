@@ -1,21 +1,21 @@
 import React, { useState, useRef, useEffect, useContext } from 'react'
-import ChatMessage from './ChatMessage';
-import { ChatContext } from '../context/chatContext';
+import ChatMessage from './ChatMessage'
+import { ChatContext } from '../context/chatContext'
 import { auth } from '../firebase'
-import Thinking from './Thinking';
+import Thinking from './Thinking'
 
 /**
  * A chat view component that displays a list of messages and a form for sending new messages.
  */
 const ChatView = () => {
-  const messagesEndRef = useRef();
-  const inputRef = useRef();
-  const [formValue, setFormValue] = useState('');
-  const [thinking, setThinking] = useState(false);
+  const messagesEndRef = useRef()
+  const inputRef = useRef()
+  const [formValue, setFormValue] = useState('')
+  const [thinking, setThinking] = useState(false)
   const options = ['ChatGPT', 'DALL·E']
   const [selected, setSelected] = useState(options[0])
-  const [messages, addMessage, , , setLimit] = useContext(ChatContext);
-  const email = auth.currentUser.email;
+  const [messages, addMessage, , , setLimit] = useContext(ChatContext)
+  const email = auth.currentUser.email
   const picUrl = auth.currentUser.photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'
 
   /**
@@ -41,7 +41,7 @@ const ChatView = () => {
       selected: `${selected}`
     }
 
-    addMessage(newMsg);
+    addMessage(newMsg)
   }
 
   /**
@@ -50,14 +50,14 @@ const ChatView = () => {
    * @param {Event} e - The submit event of the form.
    */
   const sendMessage = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     const newMsg = formValue
     const aiModel = selected
 
-    const BASE_URL = 'https://chatgpt-clone-kbwx.onrender.com/'
+    const BASE_URL = process.env.REACT_APP_BASE_URL
     const PATH = aiModel === options[0] ? 'davinci' : 'dalle'
-    const POST_URL = BASE_URL + PATH;
+    const POST_URL = BASE_URL + PATH
 
     setThinking(true)
     setFormValue('')
@@ -72,22 +72,22 @@ const ChatView = () => {
         prompt: newMsg,
         email: email
       })
-    });
+    })
 
-    const data = await response.json();
+    const data = await response.json()
     setLimit(data.limit)
 
     console.log(response.status)
     if (response.ok) {
       // The request was successful
-      data.bot && updateMessage(data.bot, true, aiModel);
+      data.bot && updateMessage(data.bot, true, aiModel)
     } else if (response.status === 429) {
       setThinking(false)
     } else {
       // The request failed
       window.alert(`openAI is returning an error: ${response.status + response.statusText} 
-      please try again later`);
-      console.log(`Request failed with status code ${response.status}`);
+      please try again later`)
+      console.log(`Request failed with status code ${response.status}`)
       setThinking(false)
     }
 
@@ -99,14 +99,14 @@ const ChatView = () => {
    */
   useEffect(() => {
     scrollToBottom()
-  }, [messages, thinking]);
+  }, [messages, thinking])
 
   /**
    * Focuses the TextArea input to when the component is first rendered.
    */
   useEffect(() => {
-    inputRef.current.focus();
-  }, []);
+    inputRef.current.focus()
+  }, [])
 
   return (
     <div className="chatview">
