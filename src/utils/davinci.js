@@ -16,7 +16,7 @@ const memory = new BufferMemory({
 export const davinci = async (prompt, key, gptVersion) => {
   const chatPrompt = ChatPromptTemplate.fromMessages([
     SystemMessagePromptTemplate.fromTemplate(
-      'The following is a friendly conversation between a human and an AI. The AI is talkative and provides lots of specific details from its context and always responds in markdown format. If the AI does not know the answer to a question, it truthfully says it does not know.'
+      'The following is a friendly conversation between a human and an AI. The AI is talkative and provides lots of specific details from its context and always responds in markdown format. If the AI does not know the answer to a question, it truthfully says it does not know.',
     ),
     new MessagesPlaceholder('history'),
     HumanMessagePromptTemplate.fromTemplate('{input}'),

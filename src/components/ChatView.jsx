@@ -134,36 +134,31 @@ const ChatView = () => {
   }, []);
 
   return (
-    <main className='relative flex flex-col h-screen p-1 overflow-hidden dark:bg-light-grey'>
-      <div className='mx-auto my-4 tabs tabs-boxed w-fit'>
-        <a
-          onClick={() => setGpt(gptModel[0])}
-          className={`${gpt == gptModel[0] && 'tab-active'} tab`}>
+    <main className="relative flex flex-col h-screen p-1 overflow-hidden dark:bg-light-grey">
+      <div className="mx-auto my-4 tabs tabs-boxed w-fit">
+        <a onClick={() => setGpt(gptModel[0])} className={`${gpt == gptModel[0] && 'tab-active'} tab`}>
           GPT-3.5
         </a>
-        <a
-          onClick={() => setGpt(gptModel[1])}
-          className={`${gpt == gptModel[1] && 'tab-active'} tab`}>
+        <a onClick={() => setGpt(gptModel[1])} className={`${gpt == gptModel[1] && 'tab-active'} tab`}>
           GPT-4
         </a>
       </div>
 
-      <section className='flex flex-col flex-grow w-full px-4 overflow-y-scroll sm:px-10 md:px-32'>
+      <section className="flex flex-col flex-grow w-full px-4 overflow-y-scroll sm:px-10 md:px-32">
         {messages.length ? (
-          messages.map((message, index) => (
-            <Message key={index} message={{ ...message }} />
-          ))
+          messages.map((message, index) => <Message key={index} message={{ ...message }} />)
         ) : (
-          <div className='flex my-2'>
-            <div className='w-screen overflow-hidden'>
-              <ul className='grid grid-cols-2 gap-2 mx-10'>
+          <div className="flex my-2">
+            <div className="w-screen overflow-hidden">
+              <ul className="grid grid-cols-2 gap-2 mx-10">
                 {template.map((item, index) => (
                   <li
                     onClick={() => setFormValue(item.prompt)}
                     key={index}
-                    className='p-6 border rounded-lg border-slate-300 hover:border-slate-500'>
-                    <p className='text-base font-semibold'>{item.title}</p>
-                    <p className='text-sm'>{item.prompt}</p>
+                    className="p-6 border rounded-lg border-slate-300 hover:border-slate-500"
+                  >
+                    <p className="text-base font-semibold">{item.title}</p>
+                    <p className="text-sm">{item.prompt}</p>
                   </li>
                 ))}
               </ul>
@@ -175,30 +170,29 @@ const ChatView = () => {
 
         <span ref={messagesEndRef}></span>
       </section>
-      <form
-        className='flex flex-col px-10 mb-2 md:px-32 join sm:flex-row'
-        onSubmit={sendMessage}>
+      <form className="flex flex-col px-10 mb-2 md:px-32 join sm:flex-row" onSubmit={sendMessage}>
         <select
           value={selected}
           onChange={(e) => setSelected(e.target.value)}
-          className='w-full sm:w-40 select select-bordered join-item'>
+          className="w-full sm:w-40 select select-bordered join-item"
+        >
           <option>{options[0]}</option>
           <option>{options[1]}</option>
         </select>
-        <div className='flex items-stretch justify-between w-full'>
+        <div className="flex items-stretch justify-between w-full">
           <textarea
             ref={inputRef}
-            className='w-full grow input input-bordered join-item max-h-[20rem] min-h-[3rem]'
+            className="w-full grow input input-bordered join-item max-h-[20rem] min-h-[3rem]"
             value={formValue}
             onKeyDown={handleKeyDown}
             onChange={(e) => setFormValue(e.target.value)}
           />
-          <button type='submit' className='join-item btn' disabled={!formValue}>
+          <button type="submit" className="join-item btn" disabled={!formValue}>
             <MdSend size={30} />
           </button>
         </div>
       </form>
-      <Modal title='Setting' modalOpen={modalOpen} setModalOpen={setModalOpen}>
+      <Modal title="Setting" modalOpen={modalOpen} setModalOpen={setModalOpen}>
         <Setting modalOpen={modalOpen} setModalOpen={setModalOpen} />
       </Modal>
     </main>

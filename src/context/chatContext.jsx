@@ -18,11 +18,7 @@ const ChatContext = createContext({});
 const ChatContextProvider = (props) => {
   const { messages, addMessage, clearChat } = useMessageCollection();
 
-  return (
-    <ChatContext.Provider value={[messages, addMessage, clearChat]}>
-      {props.children}
-    </ChatContext.Provider>
-  );
+  return <ChatContext.Provider value={[messages, addMessage, clearChat]}>{props.children}</ChatContext.Provider>;
 };
 
 export { ChatContext, ChatContextProvider };

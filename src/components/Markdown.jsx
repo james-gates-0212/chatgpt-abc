@@ -10,11 +10,7 @@ const Markdown = ({ markdownText }) => {
         code({ inline, className, children, ...props }) {
           const match = /language-(\w+)/.exec(className || 'language-js');
           return !inline ? (
-            <SyntaxHighlighter
-              {...props}
-              style={atomDark}
-              language={match[1]}
-              PreTag='div'>
+            <SyntaxHighlighter {...props} style={atomDark} language={match[1]} PreTag="div">
               {String(children).replace(/\n$/, '')}
             </SyntaxHighlighter>
           ) : (
@@ -23,7 +19,8 @@ const Markdown = ({ markdownText }) => {
             </code>
           );
         },
-      }}>
+      }}
+    >
       {markdownText}
     </ReactMarkdown>
   );

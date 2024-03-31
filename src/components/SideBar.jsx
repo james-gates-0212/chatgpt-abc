@@ -1,11 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
-import {
-  MdClose,
-  MdMenu,
-  MdOutlineCoffee,
-  MdOutlineVpnKey,
-  MdDelete,
-} from 'react-icons/md';
+import { MdClose, MdMenu, MdOutlineCoffee, MdOutlineVpnKey, MdDelete } from 'react-icons/md';
 import { AiOutlineGithub } from 'react-icons/ai';
 import { ChatContext } from '../context/chatContext';
 import bot from '../assets/logo.svg';
@@ -40,49 +34,39 @@ const SideBar = () => {
     <section
       className={`${
         open ? 'w-72' : 'w-16'
-      } bg-neutral flex flex-col items-center gap-y-4 h-screen pt-4 relative duration-100 shadow-md`}>
-      <div className='flex items-center justify-between w-full px-2 mx-auto'>
-        <div
-          className={` ${
-            !open && 'scale-0 hidden'
-          } flex flex-row items-center gap-2 mx-auto w-full`}>
-          <img src={bot} alt='logo' className='w-6 h-6' />
+      } bg-neutral flex flex-col items-center gap-y-4 h-screen pt-4 relative duration-100 shadow-md`}
+    >
+      <div className="flex items-center justify-between w-full px-2 mx-auto">
+        <div className={` ${!open && 'scale-0 hidden'} flex flex-row items-center gap-2 mx-auto w-full`}>
+          <img src={bot} alt="logo" className="w-6 h-6" />
           <h1 className={` ${!open && 'scale-0 hidden'}`}>ChatGPT</h1>
         </div>
-        <div
-          className='mx-auto btn btn-square btn-ghost'
-          onClick={() => setOpen(!open)}>
+        <div className="mx-auto btn btn-square btn-ghost" onClick={() => setOpen(!open)}>
           {open ? <MdClose size={15} /> : <MdMenu size={15} />}
         </div>
       </div>
 
-      <ul className='w-full menu rounded-box'>
+      <ul className="w-full menu rounded-box">
         <li>
-          <a className='border border-slate-500' onClick={clear}>
+          <a className="border border-slate-500" onClick={clear}>
             <MdDelete size={15} />
             <p className={`${!open && 'hidden'}`}>Clear chat</p>
           </a>
         </li>
       </ul>
 
-      <ul className='absolute bottom-0 w-full gap-1 menu rounded-box'>
+      <ul className="absolute bottom-0 w-full gap-1 menu rounded-box">
         <li>
           <ToggleTheme open={open} />
         </li>
         <li>
-          <a
-            href='https://james-gates-portfolio.vercel.app'
-            rel='noreferrer'
-            target='_blank'>
+          <a href="https://james-gates-portfolio.vercel.app" rel="noreferrer" target="_blank">
             <MdOutlineCoffee size={15} />
             <p className={`${!open && 'hidden'}`}>Support this project</p>
           </a>
         </li>
         <li>
-          <a
-            rel='noreferrer'
-            target='_blank'
-            href='https://github.com/james-gates-0212/chatgpt-abc'>
+          <a rel="noreferrer" target="_blank" href="https://github.com/james-gates-0212/chatgpt-abc">
             <AiOutlineGithub size={15} />
             <p className={`${!open && 'hidden'}`}>Github</p>
           </a>
@@ -94,7 +78,7 @@ const SideBar = () => {
           </a>
         </li>
       </ul>
-      <Modal title='Setting' modalOpen={modalOpen} setModalOpen={setModalOpen}>
+      <Modal title="Setting" modalOpen={modalOpen} setModalOpen={setModalOpen}>
         <Setting modalOpen={modalOpen} setModalOpen={setModalOpen} />
       </Modal>
     </section>
