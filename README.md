@@ -10,7 +10,7 @@
 ![GitHub Release](https://img.shields.io/github/v/release/james-gates-0212/chatgpt)
 ![GitHub Tag](https://img.shields.io/github/v/tag/james-gates-0212/chatgpt)
 
-# ChatGPT
+# ChatGPT-ABC
 
 Howdy! ChatGPT is a real fancy app that brings together the mighty ChatGPT and DALL.E. This here app gives y'all the flexibility to switch between different versions of ChatGPT. Now, one of the real standout features of ChatGPT is its ability to save them chat conversations right to your local storage. Ain't that just dandy? If ya have any more questions or need help, just holler!
 
