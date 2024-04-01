@@ -36,11 +36,10 @@ pnpm install
 pnpm dev
 ```
 
-**_Tech used_**
+## Tech used
 
-- OpenAI API
-- Langchain
-- React with Vite
-- TailwindCSS with DaisyUI
+- langchain
+- react with Vite
+- tailwindCSS with daisyui
 - react-icons
 - react-markdown
