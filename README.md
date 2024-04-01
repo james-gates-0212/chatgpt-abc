@@ -19,10 +19,10 @@ Howdy! ChatGPT-ABC is a real fancy app that brings together the mighty ChatGPT a
 
 ## Features
 
-- [x] gpt 3.5 and 4
-- [x] dall.e image generator
-- [x] save chat to localstorage
-- [x] chat context
+- gpt 3.5 and 4
+- dall.e image generator
+- save chat to localstorage
+- chat context
 
 ## Install
 
